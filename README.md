@@ -5,5 +5,5 @@
 - Compact Map: A map and filter algorithm that collects and iterates data, filtering out nils and mapping to unwrap optionals
 - FlatMap: it joins together all the inner arrays into a single, flat collection of elements. This pattern of mapping and joining is so common that we define another special kind of map for it: flatMap. 
 - Chaining together Algorithms: conscise, flexible and clearer code
-- 
+- Lazy Algorithms and lazy adapters: 
 
