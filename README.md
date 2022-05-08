@@ -10,3 +10,8 @@
 - adjacentPairs: vends a tuple rather than a subsequence, allowing for more convenient element access. 
 - chunks(ofCount:) : chunks don't overlap. If a collection isn't evenly divisible by the chunk count, the last chunk in the sequence will contain the remainder. Just like windows, chunks are subsequences of the base collection, so they're cheap to create.
 - isPrime: we'll iterate the chunks of consecutive elements that return the same value for isPrime. For convenience, chunked(on:) vends a tuple of both the chunk and the value being chunked on. 
+
+
+
+
+
