@@ -52,8 +52,7 @@ When a webpage is added to the Dock on macOS, it is always treated as a web app.
 - The web app manifest is a way for a website to communicate its intended behavior for web app-related features with the system.
 - To add a web app manifest to your website, simply add a link with `rel="manifest"` ,to a JSON file in the head of your HTML.
 - In the corresponding manifest file, add the keys and values that apply to your website.
-- Set the name of the web app.
-- Then change the display mode, set display to `“standalone”`
+- Set the name of the web app and change the display mode, set display to `“standalone”`
 - On macOS, the web app will not have a toolbar and on iOS and iPadOS, the site will open in a Home Screen web app.
 
 #### Links clicked within the Web App when opened.
