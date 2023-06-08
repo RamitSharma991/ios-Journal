@@ -94,7 +94,7 @@ When a webpage is added to the Dock on macOS, it is always treated as a web app.
 - The `"id"` manifest key defines unique web apps within the same domain.
 - Used for syncing Focus modes and can be useful if you have multiple parts of your website that should be treated as distinct web apps under the same domain.
 - If you only have one web app for a given domain, then you don't need to set the id.
-- The fallback if there is no id provided is the `start_url`.
+- The fallback if there is no id provided is the `start_url`
 
 ### Focus syncing
 - Focus modes sync across all of a user's devices.
