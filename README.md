@@ -80,7 +80,7 @@ When a webpage is added to the Dock on macOS, it is always treated as a web app.
   - iOS and iPadOS sound on by default and macOS sound off by default. 
   - If the notification should be silent, set `silent: true` in the options when requesting your notification. 
   - If the notification should make a sound, then set `silent: false`.
-- just like for native app notifications, users can control notification sounds using notifications settings
+- Just like for native app notifications, users can control notification sounds using notifications settings
 - Badging:
   - Useful to alert users that there is something to address in the web app.
   - Badges can be updated when the web app is open and when push events are being handled in the background. 
