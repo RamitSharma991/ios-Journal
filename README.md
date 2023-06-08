@@ -28,14 +28,13 @@ Ordered dictionaries use array-like integer indices, but this introduces an inte
 
 
 ## Web Apps features
+- iOS17 and MacOS Sonoma fully support Home Screen web apps.
 - Web apps on Mac work great with no adoption required by developers.
 - Any website can become a web app. 
 - Web apps on Mac are fully integrated with many of the features that you would expect from a native app on macOS.
 - Like all Mac apps, web apps work great with Stage Manager, Mission Control, and keyboard shortcuts, such as command + tab.
 - Web apps can be opened from the Dock, Launchpad, and Spotlight Search.
 - Web apps work with AutoFill credentials from iCloud Keychain and from third-party apps that have adopted the Credential Provider Extension API.
-
-### Now users can add Home Screen web apps in iOS17 and MacOS Sonoma.
 - Add to Home Screen is now available in Safari View Controller.  
 - We can create a web app by adding a website to the Dock from the File menu `File > Add to Dock`.
 
