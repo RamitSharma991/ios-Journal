@@ -163,13 +163,13 @@ There's a new tool in Web Inspector to emulate user preferences. Click the new i
 ## Element badges 
 
 - In the node tree view of the Elements tab, you can already see badges next to elements that act as CSS Flex or CSS Grid containers. Element badges provide a quick way to identify at a glance nodes of particular interest. In this case, nodes that create a CSS Grid or Flex layout context. 
-<element> grid   <element> flex
-- One of the trickiest CSS layout issues to debug is unwanted scroll, like a container that scrolls horizontally because the content inside it doesn't fit the available width. The new element badge ' <element> Scroll ' that helps to identify unwanted scroll.
+`<element> grid`   `<element> flex`
+- One of the trickiest CSS layout issues to debug is unwanted scroll, like a container that scrolls horizontally because the content inside it doesn't fit the available width. The new element badge `<element> Scroll` that helps to identify unwanted scroll.
 - It provides a quick visual hint in the node tree when an element's content overflows its bounds and a scroll bar is applied.
 - A new Event badge appears next to elements which have JavaScript event listeners attached to them. It works both for built-in events, like pointer or UI events, as well as custom JavaScript events that you dispatch in your code.
   
 ## Breakpoint enhancements
-- When debugging JavaScript, you may be used to adding console.log() statements to your code. Breakpoints, on the other hand, are a powerful way to debug by pausing and stepping through JavaScript without having to make changes to your source.
+- When debugging JavaScript, you may be used to adding `console.log()` statements to your code. Breakpoints, on the other hand, are a powerful way to debug by pausing and stepping through JavaScript without having to make changes to your source.
 - The easiest way to start is by clicking on a line number on a script file in the gutter of the Sources tab. 
 - This sets a JavaScript breakpoint on that line of the script. Next time that line is about to run, Web Inspector will instead pause JavaScript execution at that point. While paused, you can observe the call stack, inspect the state of objects and variables in scope, and even make changes to them through the Console.
 - You can resume JavaScript execution, or you can step through the code one expression at a time, using the stepping controls at the top. You can configure a breakpoint by right clicking on it and selecting Edit Breakpoint.
@@ -178,7 +178,7 @@ There's a new tool in Web Inspector to emulate user preferences. Click the new i
 - You can also run actions when a breakpoint is hit, like evaluating a piece of JavaScript. 
 - This runs in the same scope where the breakpoint is set. 
 - You can use this to modify the state of your script before continuing. 
-- You can also log messages to the console with expressions that have access to the state of variables and objects at the moment when JavaScript was paused. This is similar to adding a console.log() statement to your code, but without having to modify your source. Instead of logging variables and objects to the console, you can also use the Probe Expression action. This allows you to inspect the state of the given expression in the details sidebar panel of the Sources tab
+- You can also log messages to the console with expressions that have access to the state of variables and objects at the moment when JavaScript was paused. This is similar to adding a console.log() statement to your code, but without having to modify your source. Instead of logging variables and objects to the console, you can also use the Probe Expression action. This allows you to inspect the state of the given expression in the details sidebar panel of the Sources tab.
 
 ### Symbolic breakpoints
 Symbolic breakpoints have been added  to pause before a function is about to be invoked. They are helpful to debug calls to built-in JavaScript functions or to pause in multiple functions with the same name.
