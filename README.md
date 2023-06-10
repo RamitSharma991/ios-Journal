@@ -115,3 +115,47 @@ When a webpage is added to the Dock on macOS, it is always treated as a web app.
 
 
 
+
+
+
+
+
+
+
+
+
+
+Web Inspector is part of Safari on macOS, and it provides a powerful set of tools that allow you to inspect all the resources and activities of a website, web app, web extension, or home screen web app.Many improvements have been made to developer features in Safari, including a streamlined way to pair and inspect web content on devices, a quick way to open a web page in a Simulator, a refreshed Responsive Design Mode, and many others. To enable Web inspector: 
+
+- Open the Settings window of Safari and switch to the Advanced tab. 
+- At the bottom, you'll find the setting to "Show features for web developers.
+- Click the checkbox to enable this. The Develop menu is now available in the menu bar.
+- Open Web Inspector using the menu item called Show Web Inspector or by pressing the keyboard shortcut Option+Command+I on any web page.
+
+
+
+## Typography inspection
+
+Web Inspector can help with a host of typography inspection tools. You can find them in the Details sidebar of the Elements tab, in the Font panel. 
+
+ - It shows properties and capabilities of the font used on the selected element, such as the name of the primary font used. 
+ - Reference this to quickly check if the font you expected was indeed used. 
+ - This only identifies the primary font.
+ - If the selected node includes characters for which the primary font does not have glyphs, a fallback font will be used for those.
+ - Font panel shows a summary of the basic font properties, like font size, style, weight, and stretch.
+ - There's also a section that shows the supported font feature properties and their used values. 
+ - These toggle special aspects of a typeface such as ligatures, small caps instead of lowercase characters, special numeric styles, and many others, depending on what the font supports. 
+ - Now the Font panel shows warnings for synthetic bold or oblique styles. Often, these aren't slanted versions of the upright style, but instead they're cursive, specially designed to convey a particular aesthetic. Something similar happens for synthetic bold, where the stroke of the glyphs is made artificially thicker. 
+ - Web Inspector now displays a warning when a synthetic bold or oblique is used. 
+ - It shows up next to the synthesized weight or style in the basic properties section of the Font panel. 
+ - This warning can be a hint that the expected font file was not loaded. 
+ - Variable fonts can help when the font file just doesn't support the exact values you asked for. 
+ - All aspects of a variable font that can be configured are expressed as variation axes. 
+ - Web Inspector can help here. When you inspect an element that uses a variable font, the Font panel shows you a list of the supported variation axes. For each, it shows its axis tag-- a four-character identifier-- an optional axis label, the supported minimum and maximum values, as well as the current value, or the default value if one is not specified in CSS.
+ - Interactive controls to edit the values of variation axes and see the results live on the inspected page.To integrate these changes back into my project, I can copy the new CSS properties from the Styles panel or from the Changes panel.
+
+
+
+
+
+
