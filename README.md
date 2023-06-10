@@ -155,7 +155,34 @@ Web Inspector can help with a host of typography inspection tools. You can find 
  - Interactive controls to edit the values of variation axes and see the results live on the inspected page.To integrate these changes back into my project, I can copy the new CSS properties from the Styles panel or from the Changes panel.
 
 
+## User preference overrides 
+
+There's a new tool in Web Inspector to emulate user preferences. Click the new icon in the Elements tab to reveal the User Preference Overrides popover. Here, you'll find a set of toggles to override user preferences just for the inspected page while Web Inspector is open. These preferences map to CSS media features which you can use to adapt the style and behavior of your web page. Some examples are these overrides are of the preference for color scheme maps to the prefers-color-scheme media feature in CSS and to override the preference for reduced motion.  
 
 
+## Element badges 
+
+- In the node tree view of the Elements tab, you can already see badges next to elements that act as CSS Flex or CSS Grid containers. Element badges provide a quick way to identify at a glance nodes of particular interest. In this case, nodes that create a CSS Grid or Flex layout context. 
+<element> grid   <element> flex
+- One of the trickiest CSS layout issues to debug is unwanted scroll, like a container that scrolls horizontally because the content inside it doesn't fit the available width. The new element badge ' <element> Scroll ' that helps to identify unwanted scroll.
+- It provides a quick visual hint in the node tree when an element's content overflows its bounds and a scroll bar is applied.
+- A new Event badge appears next to elements which have JavaScript event listeners attached to them. It works both for built-in events, like pointer or UI events, as well as custom JavaScript events that you dispatch in your code.
+  
+## Breakpoint enhancements
+- When debugging JavaScript, you may be used to adding console.log() statements to your code. Breakpoints, on the other hand, are a powerful way to debug by pausing and stepping through JavaScript without having to make changes to your source.
+- The easiest way to start is by clicking on a line number on a script file in the gutter of the Sources tab. 
+- This sets a JavaScript breakpoint on that line of the script. Next time that line is about to run, Web Inspector will instead pause JavaScript execution at that point. While paused, you can observe the call stack, inspect the state of objects and variables in scope, and even make changes to them through the Console.
+- You can resume JavaScript execution, or you can step through the code one expression at a time, using the stepping controls at the top. You can configure a breakpoint by right clicking on it and selecting Edit Breakpoint.
+- There are many options you can set to control when the breakpoint is hit and even run actions when it does.
+- You can control when a breakpoint is hit by setting a condition for it. This evaluates as JavaScript in the same scope where your breakpoint is set.
+- You can also run actions when a breakpoint is hit, like evaluating a piece of JavaScript. 
+- This runs in the same scope where the breakpoint is set. 
+- You can use this to modify the state of your script before continuing. 
+- You can also log messages to the console with expressions that have access to the state of variables and objects at the moment when JavaScript was paused. This is similar to adding a console.log() statement to your code, but without having to modify your source. Instead of logging variables and objects to the console, you can also use the Probe Expression action. This allows you to inspect the state of the given expression in the details sidebar panel of the Sources tab
+
+### Symbolic breakpoints
+Symbolic breakpoints have been added  to pause before a function is about to be invoked. They are helpful to debug calls to built-in JavaScript functions or to pause in multiple functions with the same name.
+
+If you want to learn more about these and the many other features you can use, go to webkit.org to find in-depth blog posts and documentation.
 
 
