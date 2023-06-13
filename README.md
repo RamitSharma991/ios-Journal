@@ -255,7 +255,7 @@ struct HoneyComb: Shape {
 ```
 - System controls that are disabled due to app state automatically do not get hover effects. 
 - If apps want to de-emphasize specific interface elements, they can opt out individual items, they can opt out individual items. 
-- Overriding hover effect ‘ .hoverEffectDisabled(Bool) ’ 
+- Overriding hover effect `.hoverEffectDisabled(Bool)`
 - The system accepts a maximum of two simultaneous inputs since each hand is a distinct touch.
 - Custom gesture recognizers are also supported, but you may need to update them to run smoothly with the natural input expectations.
 
