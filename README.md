@@ -261,7 +261,7 @@ struct HoneyComb: Shape {
 
 ## Game Controllers Support 
   ### App Store indicator 
-   -`GCSupportControllerUserInteraction`
+   - `GCSupportControllerUserInteraction`
    - Game controller capability 
 
 # Visuals
