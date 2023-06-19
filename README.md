@@ -73,8 +73,8 @@ The Lifecycle of a Live Activity contains four main steps:
  * Users should be able to identify the specific activity by looking at the content here.
  * Create a Dynamic Island view builder to represent each of those presentations. 
  * When more than one app starts a Live Activity, the system chooses which Live Activities are visible and displays both of them using the minimal presentation for each: 
-  * one minimal presentation appears attached to the Dynamic Island 
-  * the other appears detached.
+    * one minimal presentation appears attached to the Dynamic Island 
+    * the other appears detached.
  * Your minimal view should only have the most critical information, as you have very limited space to work with.
  * When users touch and hold a Live Activity in a compact or minimal presentation, the system displays the content in an expanded presentation.
  * For the expanded presentation, the system divides the expanded presentation into different areas. 
