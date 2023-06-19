@@ -71,8 +71,10 @@ The Lifecycle of a Live Activity contains four main steps:
  * They appear together to form a cohesive presentation in the Dynamic Island.
  * Choose essential content to show in the leading and trailing space.
  * Users should be able to identify the specific activity by looking at the content here.
- * Create a DynamicIsland view builder to represent each of those presentations. 
- * When more than one app starts a Live Activity, the system chooses which Live Activities are visible and displays both of them using the minimal presentation for each: one minimal presentation appears attached to the Dynamic Island while the other appears detached.
+ * Create a Dynamic Island view builder to represent each of those presentations. 
+ * When more than one app starts a Live Activity, the system chooses which Live Activities are visible and displays both of them using the minimal presentation for each: 
+  * one minimal presentation appears attached to the Dynamic Island 
+  * the other appears detached.
  * Your minimal view should only have the most critical information, as you have very limited space to work with.
  * When users touch and hold a Live Activity in a compact or minimal presentation, the system displays the content in an expanded presentation.
  * For the expanded presentation, the system divides the expanded presentation into different areas. 
@@ -83,38 +85,6 @@ The Lifecycle of a Live Activity contains four main steps:
 
 ## Related Sessions
 
-- https://developer.apple.com/wwdc23/10028
-- https://developer.apple.com/wwdc23/10185
-- https://developer.apple.com/wwdc23/10194
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```swift
-
-}
-```
-
+- [Bring widgets to life - WWDC23](https://developer.apple.com/wwdc23/10028)
+- [Update Live Activities with Push Notifications - WWDC23](https://developer.apple.com/wwdc23/10185)
+- [Design Dynamic Live Activities - WWDC23](https://developer.apple.com/wwdc23/10194)
