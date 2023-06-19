@@ -17,12 +17,11 @@ The third data structure provided by the Collections package is an ordered analo
 Ordered dictionaries use array-like integer indices, but this introduces an interesting issue. In our example dictionary, the indexing subscript operation conflicts with the key subscript. When we subscript with zero, do we mean to access the value for the key zero or do we mean to retrieve the key-value pair at offset zero? We think that the key-based subscript is the primary operation for a dictionary type, so to prevent this ambiguity, subscripting an ordered dictionary always means the keying subscript. OrderedDictionary doesn't provide an indexing subscript operation at all. This means that OrderedDictionary cannot be a collection, because the collection protocol requires such a subscript. Therefore, OrderedDictionary only conforms to the sequence protocol. However, for cases where a collection conformance is desirable, OrderedDictionary provides the special elements view. Elements is a random-access collection that provides an indexing subscript returning a key-value pair. Looking at the underlying implementation, while the regular dictionary type uses two separate hash tables for storing keys and values respectively, an ordered dictionary uses a single compressed hash table and two parallel arrays instead. This can save even more space than ordered sets do.
 
 
-
-
-Live Activities are an Immersive, glanceable way to keep track of an event or the progress of a task. They have a discrete start and end and provides real-time updates from background app on runtime or remotely using Push Notifications.
+Live Activities are an immersive and glanceable way to keep track of an event or the progress of a task. They have a discrete start and end and provides real-time updates from background app on runtime or remotely using Push Notifications.
 
 ## Live Activity overview
 
+* Works with ***ActivityKit framework***, empowering apps to request, update, and manage their lifecycles.
 * Declarative programmatic layout with SwiftUI and WidgetKit.
 * Explicit user action to begin a Live Activity.
 * A Live Activity can be requested when your app is in the foreground. 
@@ -31,13 +30,12 @@ Live Activities are an Immersive, glanceable way to keep track of an event or th
 * Must support Lock Screen and the Dynamic Island. 
 * Update remotely using push notifications.
 * Dynamic Island displays Live Activities throughout the system when the app is in the background. 
-* When one Live Activity is active, it’s rendered using its variable-width, “compact” presentation.
+* When one Live Activity is active, it’s rendered using its `variable-width`, `compact`presentation.
 * The Dynamic Island displays up to two live activities at a time.
 * One of these Live Activities appears attached to the TrueDepth camera, while the other renders in its own detached view.
-* Both of these Live Activities use their “minimal” presentation.
-* Long press a Live Activity to display its “expanded” presentation, giving even more glanceable information.
+* Both of these Live Activities use their `minimal` presentation.
+* Long press a Live Activity to display its `expanded` presentation, giving even more glanceable information.
 * In the expanded presentation, views can deep link to different areas within the app. 
-* Relies on the ActivityKit framework, empowering apps to request, update, and manage their lifecycles.
 
 ### New experiences for Live Activities in iOS 17
 
@@ -70,7 +68,7 @@ The Lifecycle of a Live Activity contains four main steps:
  * The compact presentation has two areas, ***leading and trailing.***
  * They appear together to form a cohesive presentation in the Dynamic Island.
  * Choose essential content to show in the leading and trailing space.
- * Users should be able to identify the specific activity by looking at the content here.
+ * Users should be able to identify the specific activity by looking at the content.
  * Create a Dynamic Island view builder to represent each of those presentations. 
  * When more than one app starts a Live Activity, the system chooses which Live Activities are visible and displays both of them using the minimal presentation for each: 
     * one minimal presentation appears attached to the Dynamic Island 
@@ -80,8 +78,6 @@ The Lifecycle of a Live Activity contains four main steps:
  * For the expanded presentation, the system divides the expanded presentation into different areas. 
  * The first closure of the DynamicIsland view builder represents the expanded content. 
  * Within that closure, each section content can be defined with the expanded region passing the specific position.
-
-
 
 ## Related Sessions
 
