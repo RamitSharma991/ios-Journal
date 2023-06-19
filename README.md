@@ -30,7 +30,7 @@ Live Activities are an immersive and glanceable way to keep track of an event or
 * Must support Lock Screen and the Dynamic Island. 
 * Update remotely using push notifications.
 * Dynamic Island displays Live Activities throughout the system when the app is in the background. 
-* When one Live Activity is active, it’s rendered using its `variable-width`, `compact`presentation.
+* When one Live Activity is active, it’s rendered using its `variable-width`, compact presentation.
 * The Dynamic Island displays up to two live activities at a time.
 * One of these Live Activities appears attached to the TrueDepth camera, while the other renders in its own detached view.
 * Both of these Live Activities use their `minimal` presentation.
