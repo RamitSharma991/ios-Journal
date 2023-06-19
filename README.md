@@ -19,274 +19,102 @@ Ordered dictionaries use array-like integer indices, but this introduces an inte
 
 
 
+Live Activities are an Immersive, glanceable way to keep track of an event or the progress of a task. They have a discrete start and end and provides real-time updates from background app on runtime or remotely using Push Notifications.
+
+## Live Activity overview
+
+* Declarative programmatic layout with SwiftUI and WidgetKit.
+* Explicit user action to begin a Live Activity.
+* A Live Activity can be requested when your app is in the foreground. 
+* Live Activities are user-moderated similar to Notifications.
+* Someone can easily dismiss or turn them off for your app altogether.
+* Must support Lock Screen and the Dynamic Island. 
+* Update remotely using push notifications.
+* Dynamic Island displays Live Activities throughout the system when the app is in the background. 
+* When one Live Activity is active, it’s rendered using its variable-width, “compact” presentation.
+* The Dynamic Island displays up to two live activities at a time.
+* One of these Live Activities appears attached to the TrueDepth camera, while the other renders in its own detached view.
+* Both of these Live Activities use their “minimal” presentation.
+* Long press a Live Activity to display its “expanded” presentation, giving even more glanceable information.
+* In the expanded presentation, views can deep link to different areas within the app. 
+* Relies on the ActivityKit framework, empowering apps to request, update, and manage their lifecycles.
+
+### New experiences for Live Activities in iOS 17
+
+* In addition to the Lock screen and Dynamic Island, Live Activities appear in StandBy.
+* Now iPad supports Live Activities. 
+* Interactive Live Activities 
+   * Leverage widget enhancements
+   * Add buttons or toggles
+
+
+## Lifecycle of Live Activities
+
+The Lifecycle of a Live Activity contains four main steps: 
+
+* Request
+* Update 
+* Observe activity state
+* End
+
+## Building Live Activity UI
+
+* Show most essential content
+* Simple design
+* Show additional details in the application
+
+### Dynamic Island presentations.
+
+ * There are three presentations: ***compact, minimal and expanded.***
+ * When an app’s Live Activity is the only one running on the system, it’ll be displayed using the compact presentation.
+ * The compact presentation has two areas, ***leading and trailing.***
+ * They appear together to form a cohesive presentation in the Dynamic Island.
+ * Choose essential content to show in the leading and trailing space.
+ * Users should be able to identify the specific activity by looking at the content here.
+ * Create a DynamicIsland view builder to represent each of those presentations. 
+ * When more than one app starts a Live Activity, the system chooses which Live Activities are visible and displays both of them using the minimal presentation for each: one minimal presentation appears attached to the Dynamic Island while the other appears detached.
+ * Your minimal view should only have the most critical information, as you have very limited space to work with.
+ * When users touch and hold a Live Activity in a compact or minimal presentation, the system displays the content in an expanded presentation.
+ * For the expanded presentation, the system divides the expanded presentation into different areas. 
+ * The first closure of the DynamicIsland view builder represents the expanded content. 
+ * Within that closure, each section content can be defined with the expanded region passing the specific position.
 
 
 
-Enhance your iPad or iPhone app from a great app to one that feels at home on this new platform of Shared Space. Following are the key areas to focus.
+## Related Sessions
+
+- https://developer.apple.com/wwdc23/10028
+- https://developer.apple.com/wwdc23/10185
+- https://developer.apple.com/wwdc23/10194
 
 
-# Interaction
-- Interaction on this platform is fun and feels familiar. 
-- One of the key components is the new natural input technique. 
-- Tap allows people to look at a button, then tap their fingers together to interact.
-- People can tap to toggle, tap, hold and swipe to interact with a slider, or tap a button.
-- Direct touch requires reaching out to the app and touching the button in the space with one finger.
-- Regardless of interaction method, the button provides continuous visual feedback to help with interaction accuracy.
-- Hover effects exist on controls to inform where people are looking. 
-- Controls that are inactive do not get hover effects. 
-- If you're building custom controls, your hover effects may need some tuning.
 
-### Tappable VStack with hover effect to the entire card available for interaction update and becomes tappable. 
 
-```swift 
-struct TappableCard: View {
-   // Sample card
-   var imageName = "BearsInWater"
-   var headline = "Bear Fishing"
-   var timeAgo = "42 Minutes ago"
-   
-   var body: some View {
-      VStack {
-         VStack(alignment: .leading) {
-            Image(imageName)
-               .resizable()
-               .clipped()
-               .aspectRatio(contentMode: .fill)
-               .frame(width: 300, height: 250, alignment: .center)
-            Text(headline)
-               .padding([.leading])
-               .font(.title2)
-               .foregroundColor(.black)
-         }
-         Divider()
-         HStack {
-            HStack {
-               Text(timeAgo)
-                  .frame(alignment: .leading)
-                  .foregroundColor(.black)
-            }
-            .padding([.leading])
-            Spacer()
-            VStack(alignment: .trailing) {
-               Button { print("Present menu options") } label: {
-                  Image(systemName: "ellipsis")
-                     .foregroundColor(.black)
-               }
-            }
-         }
-         .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-      }
-      .frame(width: 300, height: 350, alignment: .top)
-      .hoverEffect()
-      .background(.white)
-      .overlay(
-         RoundedRectangle(cornerRadius: 10)
-            .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 3.0)
-      )
-      .cornerRadius(10)
-      .onTapGesture {
-         print("Present card detail")
-      }
-   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```swift
+
 }
 ```
-### Custom player with the tap targets that are larger than hover effect bounds
-
-```swift  
-struct ContentView: View {
-   var body: some View {
-      VStack {
-         // Video player
-         HStack {
-            Button { print("Going back 10 seconds") } label: {
-               Image(systemName: "gobackward.10")
-                  .padding(.trailing)
-                  .contentShape(.hoverEffect, CustomizedRectShape(customRect: CGRect(x: -75, y: -40, width: 100, height: 100)))
-                  .foregroundStyle(.white)
-                  .frame(width: 500, height: 834, alignment: .trailing)
-            }
-            Button { print("Play") } label: {
-               Image(systemName: "play.fill")
-                  .font(.title)
-                  .foregroundStyle(.white)
-                  .frame(width: 100, height: 100, alignment: .center)
-            }
-            .padding()
-            Button { print("Going into the future 10 seconds") } label: {
-               Image(systemName: "goforward.10")
-                  .padding(.leading)
-                  .contentShape(.hoverEffect, CustomizedRectShape(customRect: CGRect(x: 0, y: -40, width: 100, height: 100)))
-                  .foregroundStyle(.white)
-                  .frame(width: 500, height: 834, alignment: .leading)
-            }
-         }
-         .frame(
-              minWidth: 0,
-              maxWidth: .infinity,
-              minHeight: 0,
-              maxHeight: .infinity,
-              alignment: .center
-         )
-      }
-      .frame(
-           minWidth: 0,
-           maxWidth: .infinity,
-           minHeight: 0,
-           maxHeight: .infinity,
-           alignment: .topLeading
-      )
-      .background(.black)
-   }
-}
-
-struct CustomizedRectShape: Shape {
-   var customRect: CGRect
-   
-   func path(in rect: CGRect) -> Path {
-      var path = Path()
-      
-      path.move(to: CGPoint(x: customRect.minX, y: customRect.minY))
-      path.addLine(to: CGPoint(x: customRect.maxX, y: customRect.minY))
-      path.addLine(to: CGPoint(x: customRect.maxX, y: customRect.maxY))
-      path.addLine(to: CGPoint(x: customRect.minX, y: customRect.maxY))
-      path.addLine(to: CGPoint(x: customRect.minX, y: customRect.minY))
-      
-      return path
-   }
-}
-
-```
-- Hover effects on system controls work great; however, the ability to customize hover effects is powerful. 
-- With the new hover effect API, apps can create hover effects for custom buttons, custom shapes, or even opt out of a control if necessary.
-
-
-
-### Button with custom buttonStyle, then adding a lower effect to the button. 
-```swift 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-         Button("Howdy y'all") { print("🤠") }
-            .buttonStyle(SixColorButton())
-        }
-        .padding()
-    }
-}
-
-struct SixColorButton: ButtonStyle {
-   func makeBody(configuration: Configuration) -> some View {
-      configuration.label
-         .padding()
-         .font(.title)
-         .foregroundStyle(.white)
-         .bold()
-         .background {
-            // Background color bands
-            ZStack {
-               Color.black
-               HStack(spacing: 0) {
-                  // GREEN
-                  Rectangle()
-                     .foregroundStyle(Color(red: 125/255, green: 186/255, blue: 66/255))
-                     .frame(width: 16)
-                  // YELLOW
-                  Rectangle()
-                     .foregroundStyle(Color(red: 240/255, green: 187/255, blue: 64/255))
-                     .frame(width: 16)
-                  // ORANGE
-                  Rectangle()
-                     .foregroundStyle(Color(red: 225/255, green: 137/255, blue: 50/255))
-                     .frame(width: 16)
-                  // RED
-                  Rectangle()
-                     .foregroundStyle(Color(red: 200/255, green: 73/255, blue: 65/255))
-                     .frame(width: 16)
-                  // PURPLE
-                  Rectangle()
-                     .foregroundStyle(Color(red: 134/255, green: 64/255, blue: 151/255))
-                     .frame(width: 16)
-                  // BLUE
-                  Rectangle()
-                     .foregroundStyle(Color(red: 75/255, green: 154/255, blue: 218/255))
-                     .frame(width: 16, height: 500)
-               }
-               .opacity(0.7)
-               .rotationEffect(.degrees(35))
-            }
-         }
-         .cornerRadius(10)
-         .hoverEffect()
-   }
-}
-```
-### Honey comb app with custom shape buttons, then adding hover effects that clip to bounds of the honey comb shape.
-```swift 
-struct ContentView: View {
-    var body: some View {
-      VStack {
-         Button { print("🐝") } label: {
-            // Button label
-            HoneyComb()
-               .fill(.yellow)
-               .frame(width: 300, height: 300)
-               .contentShape(.hoverEffect, HoneyComb())
-            }
-         }
-         .frame(width: 400, height: 400, alignment: .center)
-         .background(.black)
-         .padding()
-      }
-    }
-}
-
-struct HoneyComb: Shape {
-   func path(in rect: CGRect) -> Path {
-      var path = Path()
-      path.move(to: CGPoint(x: rect.minX + (rect.width * 0.25), y: rect.minY))
-      path.addLine(to: CGPoint(x: rect.maxX - (rect.maxX * 0.25), y: rect.minY))
-      path.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
-      path.addLine(to: CGPoint(x: rect.maxX - (rect.maxX * 0.25), y: rect.maxY))
-      path.addLine(to: CGPoint(x: rect.minX + (rect.width * 0.25), y: rect.maxY))
-      path.addLine(to: CGPoint(x: rect.minX, y: rect.midY))
-      path.addLine(to: CGPoint(x: rect.minX + (rect.width * 0.25), y: rect.minY))
-      return path
-   }
-}
-```
-- System controls that are disabled due to app state automatically do not get hover effects. 
-- If apps want to de-emphasize specific interface elements, they can opt out individual items, they can opt out individual items. 
-- Overriding hover effect `.hoverEffectDisabled(Bool)`
-- The system accepts a maximum of two simultaneous inputs since each hand is a distinct touch.
-- Custom gesture recognizers are also supported, but you may need to update them to run smoothly with the natural input expectations.
-
-## Game Controllers Support 
-  ### App Store indicator 
-   - `GCSupportControllerUserInteraction`
-   - Game controller capability 
-
-# Visuals
-- The system optimizes rendering, using dynamic content scaling so all images and text are always sharp at any angle, from any distance. 
-- To provide the best experience, use vector-based content.  
-- Prompts do not present modally. 
-
-# Media 
-- To ensure apps have an excellent capture experience, use `AVCaptureDevice` discovery session to confirm hardware availability.  
-- Requesting permission before use is required. 
-- Generalize your authorization prompt string to inform people of use, without mentioning specific hardware or software versions. 
-- If no spatial persona is found on a device, then no camera frames will return to apps. 
-  ## Media Playback
-   - `AVRoutePickerView` and Picture in Picture are unavailable on this platform.
-   - Apps that implement custom players need to check both availabilities before showing these controls.
-   - Apps that utilize background audio will no longer get the background mode when the device is locked and will be fully suspended as this platform locks once removed. 
-  ## Alternative media sources
-   - Cloud-based media
-   - Picker (document, photo)
-   - VNDocumentCameraViewController
-
-
-
-
-
-
-
 
